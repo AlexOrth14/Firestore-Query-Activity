@@ -1,0 +1,37 @@
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+
+<script>
+  // TODO
+  // Copy **only** your firebaseConfig from Google Firebae and add it below
+
+  // Your web app's Firebase configuration
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBeVb6x4moEFkz_PdQ38e9rMo9RirehvEs",
+    authDomain: "alexorthis424-fa24.firebaseapp.com",
+    projectId: "alexorthis424-fa24",
+    storageBucket: "alexorthis424-fa24.firebasestorage.app",
+    messagingSenderId: "108271720986",
+    appId: "1:108271720986:web:bc3c1e48cdd8428230cfa3",
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  // define authentication variable
+  let auth = firebase.auth();
+  let db = firebase.firestore();
+
+  // define a storage reference
+  let ref = firebase.storage().ref();
+</script>
+<!-- make sure to add your own js file as the last line in index.html file -->
+<script src="app.js"></script>
