@@ -267,3 +267,75 @@ teamsCollection
   .catch((error) =>
     console.error("Error fetching teams with famous top scorers:", error)
   );
+
+// task 3 code begins
+
+// updating Real Madrid's data
+
+teamsCollection
+  .doc("Real Madrid")
+  .update({
+    worldwideFans: 811,
+    name: "Real Madrid FC",
+  })
+  .then(() => {
+    console.log("Updated Real Madrids fans and team name");
+  })
+  .catch((error) => {
+    console.error("Error updating Real Madrid: ", error);
+  });
+
+// updating Barcelona's data
+
+teamsCollection
+  .doc("Barcelona")
+  .update({
+    worldwideFans: 747,
+    name: "FC Barcelona",
+  })
+  .then(() => {
+    console.log("Updated Barcelonas fans and team name");
+  })
+  .catch((error) => {
+    console.error("Error updating Barcelona: ", error);
+  });
+
+// updating top scorers
+
+// real madrid top scorers
+
+// Update Real Madrid's top scorers: Remove 'Hazard', Add 'Crispo'
+teamsCollection
+  .doc("Real Madrid") // Use the updated name from the previous step
+  .update({
+    topScorers: firebase.firestore.FieldValue.arrayRemove("Hazard"),
+  })
+  .then(() => {
+    return teamsCollection.doc("Real Madrid").update({
+      topScorers: firebase.firestore.FieldValue.arrayUnion("Crispo"),
+    });
+  })
+  .then(() => {
+    console.log("Updated Real Madrid's top scorers");
+  })
+  .catch((error) => {
+    console.error("Error updating Real Madrid's top scorers:", error);
+  });
+
+// Update Barcelona's top scorers: Remove 'Puyol', Add 'Deco'
+teamsCollection
+  .doc("Barcelona") // Use the updated name from the previous step
+  .update({
+    topScorers: firebase.firestore.FieldValue.arrayRemove("Puyol"),
+  })
+  .then(() => {
+    return teamsCollection.doc("Barcelona").update({
+      topScorers: firebase.firestore.FieldValue.arrayUnion("Deco"),
+    });
+  })
+  .then(() => {
+    console.log("Updated Barcelona's top scorers");
+  })
+  .catch((error) => {
+    console.error("Error updating Barcelona's top scorers:", error);
+  });
