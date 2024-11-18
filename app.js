@@ -339,3 +339,63 @@ teamsCollection
   .catch((error) => {
     console.error("Error updating Barcelona's top scorers:", error);
   });
+
+// task 3 part b
+
+// Add jersey colors to Real Madrid
+teamsCollection
+  .doc("Real Madrid") // Updated document name from previous tasks
+  .update({
+    color: {
+      home: "White",
+      away: "Black",
+    },
+  })
+  .then(() => {
+    console.log("Added jersey colors to Real Madrid FC");
+  })
+  .catch((error) => {
+    console.error("Error adding jersey colors to Real Madrid FC:", error);
+  });
+
+// Add jersey colors to Barcelona
+teamsCollection
+  .doc("Barcelona") // Updated document name from previous tasks
+  .update({
+    color: {
+      home: "Red",
+      away: "Gold",
+    },
+  })
+  .then(() => {
+    console.log("Added jersey colors to FC Barcelona");
+  })
+  .catch((error) => {
+    console.error("Error adding jersey colors to FC Barcelona:", error);
+  });
+
+// Update away jersey color for Real Madrid
+teamsCollection
+  .doc("Real Madrid")
+  .update({
+    "color.away": "Purple", // Update only the away jersey color
+  })
+  .then(() => {
+    console.log("Updated Real Madrid's away jersey color to Purple");
+  })
+  .catch((error) => {
+    console.error("Error updating Real Madrid's away jersey color:", error);
+  });
+
+// Update away jersey color for Barcelona
+teamsCollection
+  .doc("Barcelona")
+  .update({
+    "color.away": "Pink", // Update only the away jersey color
+  })
+  .then(() => {
+    console.log("Updated Barcelona's away jersey color to Pink");
+  })
+  .catch((error) => {
+    console.error("Error updating Barcelona's away jersey color:", error);
+  });
